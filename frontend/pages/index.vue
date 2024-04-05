@@ -147,7 +147,7 @@
             <AppLogo class="w-12 -mb-4" />
             x
           </h2>
-          <p class="ml-1 text-lg text-base-content/50">Track, Organize, and Manage your Things.</p>
+          <p class="ml-1 text-lg text-base-content/50">تتبع وتنظيم وإدارة الأشياء الخاصة بك.</p>
         </div>
         <div class="flex mt-6 sm:mt-0 gap-4 ml-auto text-neutral-content">
           <a class="tooltip" data-tip="Project Github" href="https://github.com/hay-kot/homebox" target="_blank">
@@ -202,17 +202,17 @@
                 <div class="card-body">
                   <h2 class="card-title text-2xl align-center">
                     <MdiAccount class="mr-1 w-7 h-7" />
-                    Login
+                    تسجيل الدخول
                   </h2>
                   <template v-if="status && status.demo">
-                    <p class="text-xs italic text-center">This is a demo instance</p>
+                    <p class="text-xs italic text-center">هذا مثال تجريبي</p>
                     <p class="text-xs text-center"><b>Email</b> demo@example.com</p>
                     <p class="text-xs text-center"><b>Password</b> demo</p>
                   </template>
-                  <FormTextField v-model="email" label="Email" />
-                  <FormPassword v-model="loginPassword" label="Password" />
+                  <FormTextField v-model="email" label="البريد الالكتروني" />
+                  <FormPassword v-model="loginPassword" label="كلمة المرور" />
                   <div class="max-w-[140px]">
-                    <FormCheckbox v-model="remember" label="Remember Me" />
+                    <FormCheckbox v-model="remember" label="تذكرني" />
                   </div>
                   <div class="card-actions justify-end">
                     <button
@@ -221,7 +221,7 @@
                       :class="loading ? 'loading' : ''"
                       :disabled="loading"
                     >
-                      Login
+                      دخول
                     </button>
                   </div>
                 </div>
