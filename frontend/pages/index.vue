@@ -174,24 +174,24 @@
                     <MdiAccount class="mr-1 w-7 h-7" />
                     Register
                   </h2>
-                  <FormTextField v-model="email" label="Set your email?" />
-                  <FormTextField v-model="username" label="What's your name?" />
+                  <FormTextField v-model="email" label="البريد الإلكتروني?" />
+                  <FormTextField v-model="username" label="كلمة المرور?" />
                   <div v-if="!(groupToken == '')" class="pt-4 pb-1 text-center">
-                    <p>You're Joining an Existing Group!</p>
+                    <p>أنت في صدد الإنظمام لمجموعة موجودة مسبقا!</p>
                     <button type="button" class="text-xs underline" @click="groupToken = ''">
-                      Don't Want To Join a Group?
+                      لا تريد الإنظمام لمجموعة?
                     </button>
                   </div>
-                  <FormPassword v-model="password" label="Set your password" />
+                  <FormPassword v-model="password" label="ضع كلمة المرور" />
                   <PasswordScore v-model:valid="canRegister" :password="password" />
                   <div class="card-actions justify-end">
                     <button
                       type="submit"
                       class="btn btn-primary mt-2"
-                      :class="loading ? 'loading' : ''"
+                      :class="loading ? 'تحميل' : ''"
                       :disabled="loading || !canRegister"
                     >
-                      Register
+                      تسجيل
                     </button>
                   </div>
                 </div>
@@ -239,11 +239,11 @@
                 <MdiLogin v-else class="w-5 h-5 swap-off" />
                 <MdiArrowRight class="w-5 h-5 swap-on" />
               </template>
-              {{ registerForm ? "Login" : "Register" }}
+              {{ registerForm ? "دخول" : "تسجيل" }}
             </BaseButton>
             <p v-else class="text-base-content italic text-sm inline-flex items-center gap-2">
               <MdiLock class="w-4 h-4 inline-block" />
-              Registration Disabled
+              التسجيل معطل
             </p>
           </div>
         </div>
