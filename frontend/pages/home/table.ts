@@ -11,7 +11,7 @@ export function itemsTable(api: UserClient) {
   });
 
   onServerEvent(ServerEvent.ItemMutation, () => {
-    console.log("item mutation");
+    console.log("طفرة العنصر");
     refresh();
   });
 
