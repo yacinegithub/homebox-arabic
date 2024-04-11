@@ -13,7 +13,7 @@
   });
 
   useHead({
-    title: "Homebox | Items",
+    title: "Homebox | الأغراض",
   });
 
   const searchLocked = ref(false);
@@ -136,7 +136,7 @@
     } else {
       const [aid, valid] = parseAssetIDString(query.value.replace("#", ""));
       if (!valid) {
-        return "Invalid Asset ID";
+        return "معرف الأصل غير صالح";
       } else {
         return aid;
       }
@@ -234,7 +234,7 @@
 
     if (error) {
       resetItems();
-      toast.error("Failed to search items");
+      toast.error("فشل في البحث عن العناصر");
       return;
     }
 
