@@ -319,7 +319,7 @@
         <div class="w-full">
           <FormTextField v-model="query" placeholder="Search" />
           <div v-if="byAssetId" class="text-sm pl-2 pt-2">
-            <p>Querying Asset ID Number: {{ parsedAssetId }}</p>
+            <p>الاستعلام عن رقم معرف الأصل: {{ parsedAssetId }}</p>
           </div>
         </div>
         <BaseButton class="btn-block md:w-auto" @click.prevent="submit">
@@ -346,21 +346,21 @@
         </SearchFilter>
         <SearchFilter v-model="selectedLabels" label="Labels" :options="labels" />
         <div class="dropdown">
-          <label tabindex="0" class="btn btn-xs">Options</label>
+          <label tabindex="0" class="btn btn-xs">خيارات</label>
           <div
             tabindex="0"
             class="dropdown-content mt-1 max-h-72 p-4 w-64 overflow-auto shadow bg-base-100 rounded-md -translate-x-24"
           >
             <label class="label cursor-pointer mr-auto">
               <input v-model="includeArchived" type="checkbox" class="toggle toggle-sm toggle-primary" />
-              <span class="label-text ml-4"> Include Archived Items </span>
+              <span class="label-text ml-4"> تضمين العناصر المؤرشفة </span>
             </label>
             <label class="label cursor-pointer mr-auto">
               <input v-model="fieldSelector" type="checkbox" class="toggle toggle-sm toggle-primary" />
-              <span class="label-text ml-4"> Field Selector </span>
+              <span class="label-text ml-4"> محدد الحقل </span>
             </label>
             <hr class="my-2" />
-            <BaseButton class="btn-block btn-sm" @click="reset"> Reset Search</BaseButton>
+            <BaseButton class="btn-block btn-sm" @click="reset"> إعادة ضبط البحث</BaseButton>
           </div>
         </div>
         <div class="dropdown ml-auto dropdown-end">
@@ -372,24 +372,24 @@
             <p class="text-base">Search Tips</p>
             <ul class="mt-1 list-disc pl-6">
               <li>
-                Location and label filters use the 'OR' operation. If more than one is selected only one will be
-                required for a match.
+               تستخدم مرشحات الموقع والتسمية العملية "OR". إذا تم اختيار أكثر من واحد سيتم اختيار واحد فقط
+                 المطلوبة للمباراة.
               </li>
-              <li>Searches prefixed with '#'' will query for a asset ID (example '#000-001')</li>
+              <li>عمليات البحث التي تبدأ بـ "#" ستستفسر عن معرف الأصل (على سبيل المثال "#000-001")</li>
               <li>
-                Field filters use the 'OR' operation. If more than one is selected only one will be required for a
-                match.
+                تستخدم عوامل تصفية الحقول العملية "OR". إذا تم اختيار أكثر من واحد، فستكون هناك حاجة إلى واحد فقط
+                 مباراة.
               </li>
             </ul>
           </div>
         </div>
       </div>
       <div v-if="fieldSelector" class="py-4 space-y-2">
-        <p>Custom Fields</p>
+        <p>الحقول المخصصة</p>
         <div v-for="(f, idx) in fieldTuples" :key="idx" class="flex flex-wrap gap-2">
           <div class="form-control w-full max-w-xs">
             <label class="label">
-              <span class="label-text">Field</span>
+              <span class="label-text">حقل</span>
             </label>
             <select
               v-model="fieldTuples[idx][0]"
@@ -402,7 +402,7 @@
           </div>
           <div class="form-control w-full max-w-xs">
             <label class="label">
-              <span class="label-text">Field Value</span>
+              <span class="label-text">قيمة الحقل</span>
             </label>
             <select v-model="fieldTuples[idx][1]" class="select-bordered select" :items="fieldValuesCache[f[0]]">
               <option v-for="v in fieldValuesCache[f[0]]" :key="v" :value="v">{{ v }}</option>
@@ -416,38 +416,38 @@
             <MdiDelete class="w-5 h-5" />
           </button>
         </div>
-        <BaseButton type="button" class="btn-sm mt-2" @click="() => fieldTuples.push(['', ''])"> Add</BaseButton>
+        <BaseButton type="button" class="btn-sm mt-2" @click="() => fieldTuples.push(['', ''])"> أضف</BaseButton>
       </div>
     </div>
 
     <section class="mt-10">
-      <BaseSectionHeader ref="itemsTitle"> Items </BaseSectionHeader>
+      <BaseSectionHeader ref="itemsTitle"> العناصر </BaseSectionHeader>
       <p class="text-base font-medium flex items-center">
-        {{ total }} Results
-        <span class="text-base ml-auto"> Page {{ page }} of {{ totalPages }}</span>
+        {{ total }} النتائج
+        <span class="text-base ml-auto"> صفحة {{ page }} من {{ totalPages }}</span>
       </p>
 
       <div ref="cardgrid" class="grid mt-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         <ItemCard v-for="item in items" :key="item.id" :item="item" />
 
-        <div class="hidden first:inline text-xl">No Items Found</div>
+        <div class="hidden first:inline text-xl">لا يوجد أي عنصر</div>
       </div>
       <div v-if="items.length > 0 && (hasNext || hasPrev)" class="mt-10 flex gap-2 flex-col items-center">
         <div class="flex">
           <div class="btn-group">
             <button :disabled="!hasPrev" class="btn text-no-transform" @click="prev">
               <MdiChevronLeft class="mr-1 h-6 w-6" name="mdi-chevron-left" />
-              Prev
+              سابق
             </button>
-            <button v-if="hasPrev" class="btn text-no-transform" @click="page = 1">First</button>
-            <button v-if="hasNext" class="btn text-no-transform" @click="page = totalPages">Last</button>
+            <button v-if="hasPrev" class="btn text-no-transform" @click="page = 1">الأول</button>
+            <button v-if="hasNext" class="btn text-no-transform" @click="page = totalPages">الأخير</button>
             <button :disabled="!hasNext" class="btn text-no-transform" @click="next">
-              Next
+              التالي
               <MdiChevronRight class="ml-1 h-6 w-6" name="mdi-chevron-right" />
             </button>
           </div>
         </div>
-        <p class="text-sm font-bold">Page {{ page }} of {{ totalPages }}</p>
+        <p class="text-sm font-bold">صفحة {{ page }} من {{ totalPages }}</p>
       </div>
     </section>
   </BaseContainer>
