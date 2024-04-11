@@ -23,7 +23,7 @@
   const currencies = computedAsync(async () => {
     const resp = await api.group.currencies();
     if (resp.error) {
-      notify.error("Failed to get currencies");
+      notify.error(" فشل في تحميل العملات");
       return [];
     }
 
@@ -32,10 +32,10 @@
 
   // Currency Selection
   const currency = ref<CurrenciesCurrency>({
-    code: "USD",
-    name: "United States Dollar",
-    local: "en-US",
-    symbol: "$",
+    code: "DZD",
+    name: "الدينار الجزائري",
+    local: "ar-DZ",
+    symbol: "د.ج",
   });
   watch(currency, () => {
     if (group.value) {
