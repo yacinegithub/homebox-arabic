@@ -10,7 +10,7 @@
   import MdiLock from "~icons/mdi/lock";
 
   useHead({
-    title: "Homebox | Organize and Tag Your Stuff",
+    title: "Homebox | تنظيم و وسم الأشياء الخاصة بك",
   });
 
   definePageMeta({
@@ -85,11 +85,11 @@
     });
 
     if (error) {
-      toast.error("Problem registering user");
+      toast.error("مشكلة في تسجيل المستخدم");
       return;
     }
 
-    toast.success("User registered");
+    toast.success("مستخدم مسجل");
 
     loading.value = false;
     registerForm.value = false;
@@ -109,12 +109,12 @@
     const { error } = await ctx.login(api, email.value, loginPassword.value, remember.value);
 
     if (error) {
-      toast.error("Invalid email or password");
+      toast.error("البريد الإلكتروني أو كلمة السر خاطئة");
       loading.value = false;
       return;
     }
 
-    toast.success("Logged in successfully");
+    toast.success("تم تسجيل الدخول بنجاح");
 
     navigateTo("/home");
     loading.value = false;
