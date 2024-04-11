@@ -15,22 +15,22 @@ export function statCardData(api: UserClient) {
   return computed(() => {
     return [
       {
-        label: "Total Value",
+        label: "القيمة الإجمالية",
         value: statistics.value?.totalItemPrice || 0,
         type: "currency",
       },
       {
-        label: "Total Items",
+        label: "إجمالي العناصر",
         value: statistics.value?.totalItems || 0,
         type: "number",
       },
       {
-        label: "Total Locations",
+        label: "إجمالي الأماكن",
         value: statistics.value?.totalLocations || 0,
         type: "number",
       },
       {
-        label: "Total Labels",
+        label: " إجمالي التسميات",
         value: statistics.value?.totalLabels || 0,
         type: "number",
       },
