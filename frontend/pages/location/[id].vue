@@ -18,7 +18,7 @@
   const { data: location } = useAsyncData(locationId.value, async () => {
     const { data, error } = await api.locations.get(locationId.value);
     if (error) {
-      toast.error("Failed to load location");
+      toast.error("فشل في تحميل المكان");
       navigateTo("/home");
       return;
     }
@@ -34,7 +34,7 @@
 
   async function confirmDelete() {
     const { isCanceled } = await confirm.open(
-      "Are you sure you want to delete this location and all of its items? This action cannot be undone."
+      "هل أنت متأكد أنك تريد حذف هذا الموقع وجميع عناصره؟ لا يمكن التراجع عن هذا الإجراء."
     );
     if (isCanceled) {
       return;
@@ -42,11 +42,11 @@
 
     const { error } = await api.locations.delete(locationId.value);
     if (error) {
-      toast.error("Failed to delete location");
+      toast.error("فشل في حذف المكان");
       return;
     }
 
-    toast.success("Location deleted");
+    toast.success("تم حذف المكان");
     navigateTo("/home");
   }
 
@@ -72,11 +72,11 @@
 
     if (error) {
       updating.value = false;
-      toast.error("Failed to update location");
+      toast.error("فشل في تحديث المكان");
       return;
     }
 
-    toast.success("Location updated");
+    toast.success("تم تحديث المكان");
     location.value = data;
     updateModal.value = false;
     updating.value = false;
@@ -97,7 +97,7 @@
     });
 
     if (resp.error) {
-      toast.error("Failed to load items");
+      toast.error("فشل في تحميل العناصر");
       return [];
     }
 
@@ -111,11 +111,11 @@
     <BaseModal v-model="updateModal">
       <template #title> Update Location </template>
       <form v-if="location" @submit.prevent="update">
-        <FormTextField v-model="updateData.name" :autofocus="true" label="Location Name" />
-        <FormTextArea v-model="updateData.description" label="Location Description" />
+        <FormTextField v-model="updateData.name" :autofocus="true" label="إسم المكان" />
+        <FormTextArea v-model="updateData.description" label="شرح المكان" />
         <LocationSelector v-model="parent" />
         <div class="modal-action">
-          <BaseButton type="submit" :loading="updating"> Update </BaseButton>
+          <BaseButton type="submit" :loading="updating"> تحديث </BaseButton>
         </div>
       </form>
     </BaseModal>
@@ -143,7 +143,7 @@
               </h1>
               <div class="flex gap-1 flex-wrap text-xs">
                 <div>
-                  Created
+                  تم الإنشاء
                   <DateTime :date="location?.createdAt" />
                 </div>
               </div>
@@ -153,12 +153,12 @@
                 <PageQRCode class="dropdown-left" />
                 <BaseButton size="sm" @click="openUpdate">
                   <MdiPencil class="mr-1" name="mdi-pencil" />
-                  Edit
+                  تعديل
                 </BaseButton>
               </div>
               <BaseButton class="btn btn-sm" @click="confirmDelete()">
                 <MdiDelete name="mdi-delete" class="mr-2" />
-                Delete
+                حذف
               </BaseButton>
             </div>
           </div>
