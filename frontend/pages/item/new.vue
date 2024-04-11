@@ -39,53 +39,53 @@
 
 <template>
   <BaseContainer cmp="section">
-    <BaseSectionHeader> Add an Item To Your Inventory </BaseSectionHeader>
+    <BaseSectionHeader> إضافة عنصر إلى المخزون الخاص بك </BaseSectionHeader>
     <form class="max-w-3xl mx-auto my-5 space-y-6" @submit.prevent="submit">
-      <div class="divider collapse-title px-0 cursor-pointer">Required Information</div>
+      <div class="divider collapse-title px-0 cursor-pointer">معلومات مطلوبة</div>
       <div class="bg-base-200 card">
         <div class="card-body">
-          <FormTextField v-model="form.name" label="Name" />
-          <FormTextArea v-model="form.description" label="Description" limit="1000" />
+          <FormTextField v-model="form.name" label="الإسم" />
+          <FormTextArea v-model="form.description" label="شرح" limit="1000" />
         </div>
       </div>
 
       <div class="divider">
-        <button class="btn btn-sm" @click="show.identification = !show.identification">Product Information</button>
+        <button class="btn btn-sm" @click="show.identification = !show.identification">معلومات المنتج</button>
       </div>
       <div v-if="show.identification" class="card bg-base-200">
         <div class="card-body grid md:grid-cols-2">
-          <FormTextField v-model="form.serialNumber" label="Serial Number" />
-          <FormTextField v-model="form.modelNumber" label="Model Number" />
-          <FormTextField v-model="form.manufacturer" label="Manufacturer" />
+          <FormTextField v-model="form.serialNumber" label="رقم تسلسلي" />
+          <FormTextField v-model="form.modelNumber" label="رقم النموذج" />
+          <FormTextField v-model="form.manufacturer" label="الصانع" />
         </div>
       </div>
       <div class="">
-        <button class="btn btn-sm" @click="show.purchase = !show.purchase">Purchase Information</button>
+        <button class="btn btn-sm" @click="show.purchase = !show.purchase"> معلومات الشراء</button>
         <div class="divider"></div>
       </div>
       <div v-if="show.purchase" class="card bg-base-200">
         <div class="card-body grid md:grid-cols-2">
-          <FormTextField v-model="form.purchaseTime" label="Purchase Time" />
-          <FormTextField v-model="form.purchasePrice" label="Purchase Price" />
-          <FormTextField v-model="form.purchaseFrom" label="Purchase From" />
+          <FormTextField v-model="form.purchaseTime" label="وقت الشراء" />
+          <FormTextField v-model="form.purchasePrice" label="ثمن الشراء" />
+          <FormTextField v-model="form.purchaseFrom" label="تم الشراء من" />
         </div>
       </div>
 
       <div class="divider">
-        <button class="btn btn-sm" @click="show.sold = !show.sold">Sold Information</button>
+        <button class="btn btn-sm" @click="show.sold = !show.sold">معلومات البيع</button>
       </div>
       <div v-if="show.sold" class="card bg-base-200">
         <div class="card-body">
           <div class="grid md:grid-cols-2 gap-2">
-            <FormTextField v-model="form.soldTime" label="Sold Time" />
-            <FormTextField v-model="form.soldPrice" label="Sold Price" />
-            <FormTextField v-model="form.soldTo" label="Sold To" />
+            <FormTextField v-model="form.soldTime" label="وقت البيع" />
+            <FormTextField v-model="form.soldPrice" label="ثمن البيع" />
+            <FormTextField v-model="form.soldTo" label="بيع لـ" />
           </div>
-          <FormTextArea v-model="form.soldNotes" label="Sold Notes" limit="1000" />
+          <FormTextArea v-model="form.soldNotes" label="ملاحطة البيع" limit="1000" />
         </div>
       </div>
       <div class="divider">
-        <button class="btn btn-sm" @click="show.extras = !show.extras">Extras</button>
+        <button class="btn btn-sm" @click="show.extras = !show.extras">إضافات</button>
       </div>
       <div v-if="show.extras" class="card bg-base-200">
         <div class="card-body">
