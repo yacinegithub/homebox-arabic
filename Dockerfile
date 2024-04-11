@@ -28,7 +28,7 @@ RUN CGO_ENABLED=0 GOOS=linux go build \
     -v ./app/api/*.go
 
 # Production Stage
-FROM alpine:latest
+FROM alpine:latest as production
 
 ENV HBOX_MODE=production
 ENV HBOX_STORAGE_DATA=/data/
