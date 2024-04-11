@@ -18,7 +18,7 @@
     }
     switch (data.total) {
       case 0:
-        toast.error("Asset not found");
+        toast.error("لم يتم العثور على الغرض");
         navigateTo("/home");
         break;
       case 1:
@@ -33,7 +33,7 @@
 <template>
   <BaseContainer>
     <section v-if="!pending">
-      <BaseSectionHeader class="mb-5"> This Asset Id is associated with multiple items</BaseSectionHeader>
+      <BaseSectionHeader class="mb-5"> يرتبط معرف الأصل هذا بعناصر متعددة</BaseSectionHeader>
       <div class="grid gap-2 grid-cols-1 sm:grid-cols-2">
         <ItemCard v-for="item in items" :key="item.id" :item="item" />
       </div>
