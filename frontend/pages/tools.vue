@@ -7,23 +7,23 @@
           <BaseSectionHeader>
             <MdiFileChart class="mr-2" />
             <span> Reports </span>
-            <template #description> Generate different reports for your inventory. </template>
+            <template #description> إنشاء تقارير مختلفة للمخزون الخاص بك. </template>
           </BaseSectionHeader>
         </template>
         <div class="border-t px-6 pb-3 border-gray-300 divide-gray-300 divide-y">
           <DetailAction @action="navigateTo('/reports/label-generator')">
-            <template #title>Asset ID Labels</template>
-            Generates a printable PDF of labels for a range of Asset ID. These are not specific to your inventory so you
-            are able to print labels ahead of time and apply them to your inventory when you receive them.
+            <template #title>تسميات معرف الأصول</template>
+           يُنشئ ملف PDF قابلاً للطباعة من التسميات لمجموعة من معرفات الأصول. هذه ليست محددة للمخزون الخاص بك لذلك أنت
+             قادرون على طباعة الملصقات مسبقًا وتطبيقها على المخزون الخاص بك عند استلامها.
             <template #button>
-              Label Generator
+              مولد التسمية
               <MdiArrowRight class="ml-2" />
             </template>
           </DetailAction>
           <DetailAction @action="getBillOfMaterials()">
-            <template #title>Bill of Materials</template>
-            Generates a TSV (Tab Separated Values) file that can be imported into a spreadsheet program. This is a
-            summary of your inventory with basic item and pricing information.
+            <template #title>فاتورة المواد</template>
+            ينشئ ملف TSV (قيم مفصولة بعلامات جدولة) يمكن استيراده إلى برنامج جدول بيانات. هذا ال
+             ملخص للمخزون الخاص بك مع العنصر الأساسي ومعلومات التسعير.
             <template #button> Generate BOM </template>
           </DetailAction>
         </div>
@@ -34,20 +34,20 @@
             <MdiDatabase class="mr-2" />
             <span> Import / Export </span>
             <template #description>
-              Import and export your inventory to and from a CSV file. This is useful for migrating your inventory to a
-              new instance of Homebox.
+              استيراد وتصدير المخزون الخاص بك من وإلى ملف CSV. يعد هذا مفيدًا لترحيل مخزونك إلى ملف
+               مثيل جديد من هوم بوكس.
             </template>
           </BaseSectionHeader>
         </template>
         <div class="border-t px-6 pb-3 border-gray-300 divide-gray-300 divide-y">
           <DetailAction @action="modals.import = true">
-            <template #title>Import Inventory</template>
-            Imports the standard CSV format for Homebox. This will <b>not</b> overwrite any existing items in your
-            inventory. It will only add new items.
+            <template #title>استيراد مخزون</template>
+            يستورد تنسيق CSV القياسي لـ Homebox. هذا <b>لن</b> يحل محل أي عناصر موجودة في جهازك
+             جرد. وسوف تضيف فقط عناصر جديدة.
           </DetailAction>
           <DetailAction @action="getExportTSV()">
-            <template #title>Export Inventory</template>
-            Exports the standard CSV format for Homebox. This will export all items in your inventory.
+            <template #title> تصدير المخزون</template>
+            يصدر تنسيق CSV القياسي لـ Homebox. سيؤدي هذا إلى تصدير كافة العناصر الموجودة في المخزون الخاص بك.
           </DetailAction>
         </div>
       </BaseCard>
@@ -57,36 +57,36 @@
             <MdiAlert class="mr-2" />
             <span> Inventory Actions </span>
             <template #description>
-              Apply Actions to your inventory in bulk. These are irreversible actions. <b>Be careful.</b>
+              قم بتطبيق الإجراءات على المخزون الخاص بك بكميات كبيرة. هذه إجراءات لا رجعة فيها. <b>كن حذرًا.</b>
             </template>
           </BaseSectionHeader>
         </template>
         <div class="border-t px-6 pb-3 border-gray-300 divide-gray-300 divide-y">
           <DetailAction @action="ensureAssetIDs">
-            <template #title>Ensure Asset IDs</template>
-            Ensures that all items in your inventory have a valid asset_id field. This is done by finding the highest
-            current asset_id field in the database and applying the next value to each item that has an unset asset_id
-            field. This is done in order of the created_at field.
+            <template #title>تأكد من معرفات الأصول</template>
+            يضمن أن جميع العناصر الموجودة في المخزون الخاص بك تحتوي على حقل معرف الأصول صالح. ويتم ذلك من خلال إيجاد أعلى
+             حقل "معرف_الأصول" الحالي في قاعدة البيانات وتطبيق القيمة التالية على كل عنصر يحتوي على "معرف_الأصول" غير محدد
+             مجال. ويتم ذلك بترتيب الحقل create_at.
           </DetailAction>
           <DetailAction @action="ensureImportRefs">
-            <template #title>Ensures Import Refs</template>
-            Ensures that all items in your inventory have a valid import_ref field. This is done by randomly generating
-            a 8 character string for each item that has an unset import_ref field.
+            <template #title>يضمن استيراد المراجع</template>
+          يضمن أن جميع العناصر الموجودة في المخزون الخاص بك تحتوي على حقل import_ref صالح. ويتم ذلك عن طريق توليد عشوائيا
+             سلسلة مكونة من 8 أحرف لكل عنصر يحتوي على حقل import_ref غير محدد.
           </DetailAction>
           <DetailAction @action="resetItemDateTimes">
-            <template #title> Zero Item Date Times</template>
-            Resets the time value for all date time fields in your inventory to the beginning of the date. This is to
-            fix a bug that was introduced early on in the development of the site that caused the time value to be
-            stored with the time which caused issues with date fields displaying accurate values.
+            <template #title> أوقات تاريخ العنصر صفر</template>
+            يعيد تعيين قيمة الوقت لجميع حقول التاريخ والوقت في مخزونك إلى بداية التاريخ. هذا هو ل
+             إصلاح الخلل الذي تم تقديمه في وقت مبكر من تطوير الموقع والذي تسبب في زيادة القيمة الزمنية
+             تم تخزينها مع الوقت الذي تسبب في حدوث مشكلات في حقول التاريخ التي تعرض قيمًا دقيقة.
             <a class="link" href="https://github.com/hay-kot/homebox/issues/236" target="_blank">
-              See Github Issue #236 for more details.
+              راجع Github العدد رقم 236# لمزيد من التفاصيل.
             </a>
           </DetailAction>
           <DetailAction @action="setPrimaryPhotos">
-            <template #title> Set Primary Photos </template>
-            In version v0.10.0 of Homebox, the primary image field was added to attachments of type photo. This action
-            will set the primary image field to the first image in the attachments array in the database, if it is not
-            already set. <a class="link" href="https://github.com/hay-kot/homebox/pull/576">See GitHub PR #576</a>
+            <template #title>تعيين الصور الأساسية</template>
+           في الإصدار v0.10.0 من Homebox، تمت إضافة حقل الصورة الأساسي إلى المرفقات من نوع الصورة. هذا الفعل
+             سيتم تعيين حقل الصورة الأساسي إلى الصورة الأولى في مجموعة المرفقات في قاعدة البيانات، إذا لم يكن كذلك
+             تم تعيينها بالفعل. <a class="link" href="https://github.com/hay-kot/homebox/pull/576">See GitHub PR #576</a>
           </DetailAction>
         </div>
       </BaseCard>
@@ -104,7 +104,7 @@
     middleware: ["auth"],
   });
   useHead({
-    title: "Homebox | Profile",
+    title: "الرئيسية | ملف التعريف",
   });
 
   const modals = ref({
@@ -130,7 +130,7 @@
 
   async function ensureAssetIDs() {
     const { isCanceled } = await confirm.open(
-      "Are you sure you want to ensure all assets have an ID? This can take a while and cannot be undone."
+      "هل أنت متأكد أنك تريد التأكد من أن جميع الأصول لها معرف؟ قد يستغرق هذا بعض الوقت ولا يمكن التراجع عنه."
     );
 
     if (isCanceled) {
@@ -140,16 +140,16 @@
     const result = await api.actions.ensureAssetIDs();
 
     if (result.error) {
-      notify.error("Failed to ensure asset IDs.");
+      notify.error("فشل في التأكد من معرفات الأصول.");
       return;
     }
 
-    notify.success(`${result.data.completed} assets have been updated.`);
+    notify.success(`${result.data.completed} تم تحديث الأصول.`);
   }
 
   async function ensureImportRefs() {
     const { isCanceled } = await confirm.open(
-      "Are you sure you want to ensure all assets have an import_ref? This can take a while and cannot be undone."
+      "هل أنت متأكد أنك تريد التأكد من أن جميع الأصول تحتوي على import_ref؟ قد يستغرق هذا بعض الوقت ولا يمكن التراجع عنه."
     );
 
     if (isCanceled) {
@@ -159,16 +159,16 @@
     const result = await api.actions.ensureImportRefs();
 
     if (result.error) {
-      notify.error("Failed to ensure import refs.");
+      notify.error("فشل في التأكد من استيراد المراجع.");
       return;
     }
 
-    notify.success(`${result.data.completed} assets have been updated.`);
+    notify.success(`${result.data.completed} تم تحديث الأصول.`);
   }
 
   async function resetItemDateTimes() {
     const { isCanceled } = await confirm.open(
-      "Are you sure you want to reset all date and time values? This can take a while and cannot be undone."
+      "هل أنت متأكد أنك تريد إعادة تعيين كافة قيم التاريخ والوقت؟ قد يستغرق هذا بعض الوقت ولا يمكن التراجع عنه."
     );
 
     if (isCanceled) {
@@ -178,16 +178,16 @@
     const result = await api.actions.resetItemDateTimes();
 
     if (result.error) {
-      notify.error("Failed to reset date and time values.");
+      notify.error("فشل في إعادة تعيين قيم التاريخ والوقت.");
       return;
     }
 
-    notify.success(`${result.data.completed} assets have been updated.`);
+    notify.success(`${result.data.completed} تم تحديث الأصول.`);
   }
 
   async function setPrimaryPhotos() {
     const { isCanceled } = await confirm.open(
-      "Are you sure you want to set primary photos? This can take a while and cannot be undone."
+      "هل أنت متأكد أنك تريد تعيين الصور الأساسية؟ قد يستغرق هذا بعض الوقت ولا يمكن التراجع عنه."
     );
 
     if (isCanceled) {
@@ -197,11 +197,11 @@
     const result = await api.actions.setPrimaryPhotos();
 
     if (result.error) {
-      notify.error("Failed to set primary photos.");
+      notify.error("فشل في تعيين الصور الأساسية.");
       return;
     }
 
-    notify.success(`${result.data.completed} assets have been updated.`);
+    notify.success(`${result.data.completed} تم تحديث الأصول.`);
   }
 </script>
 
