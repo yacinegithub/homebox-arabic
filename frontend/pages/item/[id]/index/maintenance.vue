@@ -44,19 +44,19 @@
     return [
       {
         id: "count",
-        title: "Total Entries",
+        title: "إجمالي الإدخالات",
         value: count.value || 0,
         type: "number" as StatsFormat,
       },
       {
         id: "total",
-        title: "Total Cost",
+        title: "التكلفة الإجمالية",
         value: log.value.costTotal || 0,
         type: "currency" as StatsFormat,
       },
       {
         id: "average",
-        title: "Monthly Average",
+        title: "المتوسط الشهري",
         value: log.value.costAverage || 0,
         type: "currency" as StatsFormat,
       },
@@ -129,7 +129,7 @@
   const confirm = useConfirm();
 
   async function deleteEntry(id: string) {
-    const result = await confirm.open("Are you sure you want to delete this entry?");
+    const result = await confirm.open("هل أنت متأكد أنك تريد حذف هذا الإدخال؟");
     if (result.isCanceled) {
       return;
     }
@@ -137,7 +137,7 @@
     const { error } = await api.items.maintenance.delete(props.item.id, id);
 
     if (error) {
-      toast.error("Failed to delete entry");
+      toast.error("فشل في حذف الإدخال");
       return;
     }
     refreshLog();
@@ -167,7 +167,7 @@
     });
 
     if (error) {
-      toast.error("Failed to update entry");
+      toast.error("فشل في تحديث الإدخال");
       return;
     }
 
@@ -180,20 +180,20 @@
   <div v-if="log">
     <BaseModal v-model="entry.modal">
       <template #title>
-        {{ entry.id ? "Edit Entry" : "New Entry" }}
+        {{ entry.id ?  "تعديل الإدخال" : "إدخال جديد" }}
       </template>
       <form @submit.prevent="dispatchFormSubmit">
-        <FormTextField v-model="entry.name" autofocus label="Entry Name" />
-        <DatePicker v-model="entry.completedDate" label="Completed Date" />
-        <DatePicker v-model="entry.scheduledDate" label="Scheduled Date" />
-        <FormTextArea v-model="entry.description" label="Notes" />
-        <FormTextField v-model="entry.cost" autofocus label="Cost" />
+        <FormTextField v-model="entry.name" autofocus label="إسم الإدخال" />
+        <DatePicker v-model="entry.completedDate" label="تاريخ الانتهاء" />
+        <DatePicker v-model="entry.scheduledDate" label="تاريخ البرمجة" />
+        <FormTextArea v-model="entry.description" label="ملحوظات" />
+        <FormTextField v-model="entry.cost" autofocus label="التكلفة" />
         <div class="py-2 flex justify-end">
           <BaseButton type="submit" class="ml-2 mt-2">
             <template #icon>
               <MdiPost />
             </template>
-            {{ entry.id ? "Update" : "Create" }}
+            {{ entry.id ? "إنشاء": "تحديث" }}
           </BaseButton>
         </div>
       </form>
@@ -213,17 +213,17 @@
       <div class="flex">
         <div class="btn-group">
           <button class="btn btn-sm" :class="`${scheduled ? 'btn-active' : ''}`" @click="scheduled = true">
-            Scheduled
+            مبرمج
           </button>
           <button class="btn btn-sm" :class="`${scheduled ? '' : 'btn-active'}`" @click="scheduled = false">
-            Completed
+            منتهي
           </button>
         </div>
         <BaseButton class="ml-auto" size="sm" @click="newEntry()">
           <template #icon>
             <MdiPlus />
           </template>
-          New
+          جديد
         </BaseButton>
       </div>
       <div class="container space-y-6">
@@ -258,13 +258,13 @@
               <template #icon>
                 <MdiEdit />
               </template>
-              Edit
+              تعديل
             </BaseButton>
             <BaseButton size="sm" @click="deleteEntry(e.id)">
               <template #icon>
                 <MdiDelete />
               </template>
-              Delete
+              حذف
             </BaseButton>
           </div>
         </BaseCard>
@@ -275,7 +275,7 @@
             @click="newEntry()"
           >
             <MdiWrenchClock class="h-16 w-16 inline" />
-            <span class="mt-2 block text-sm font-medium text-gray-900"> Create Your First Entry </span>
+            <span class="mt-2 block text-sm font-medium text-gray-900"> أنشء إدخالك الاول </span>
           </button>
         </div>
       </div>
