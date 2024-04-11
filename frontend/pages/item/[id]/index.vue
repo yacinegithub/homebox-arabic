@@ -26,7 +26,7 @@
   const { data: item, refresh } = useAsyncData(itemId.value, async () => {
     const { data, error } = await api.items.get(itemId.value);
     if (error) {
-      toast.error("Failed to load item");
+      toast.error("فشل تحميل العنصر");
       navigateTo("/home");
       return;
     }
@@ -62,7 +62,7 @@
     });
 
     if (resp.error) {
-      toast.error("Failed to adjust quantity");
+      toast.error("فشل في ضبط الكمية");
       return;
     }
 
@@ -153,31 +153,31 @@
 
     const ret: Details = [
       {
-        name: "Quantity",
+        name: "الكمية",
         text: item.value?.quantity,
         slot: "quantity",
       },
       {
-        name: "Serial Number",
+        name: "الرقم التسلسلي",
         text: item.value?.serialNumber,
         copyable: true,
       },
       {
-        name: "Model Number",
+        name: "رقم النموذج",
         text: item.value?.modelNumber,
         copyable: true,
       },
       {
-        name: "Manufacturer",
+        name: "الصانع",
         text: item.value?.manufacturer,
         copyable: true,
       },
       {
-        name: "Insured",
-        text: item.value?.insured ? "Yes" : "No",
+        name: "المؤمن عليه",
+        text: item.value?.insured ? "نعم" : "لا",
       },
       {
-        name: "Notes",
+        name: "ملحوظات",
         type: "markdown",
         text: item.value?.notes,
       },
@@ -264,18 +264,18 @@
     const details: Details = [
       {
         name: "Lifetime Warranty",
-        text: item.value?.lifetimeWarranty ? "Yes" : "No",
+        text: item.value?.lifetimeWarranty ? "لا" : "نعم",
       },
     ];
 
     if (item.value?.lifetimeWarranty) {
       details.push({
-        name: "Warranty Expires",
+        name: "انتهاء الضمان",
         text: "N/A",
       });
     } else {
       details.push({
-        name: "Warranty Expires",
+        name: "انتهاء الضمان",
         text: item.value?.warrantyExpires || "",
         type: "date",
         date: true,
@@ -283,7 +283,7 @@
     }
 
     details.push({
-      name: "Warranty Details",
+      name: "تفاصيل الضمان",
       type: "markdown",
       text: item.value?.warrantyDetails || "",
     });
@@ -305,16 +305,16 @@
   const purchaseDetails = computed<Details>(() => {
     const v: Details = [
       {
-        name: "Purchased From",
+        name: "الشراء من عند",
         text: item.value?.purchaseFrom || "",
       },
       {
-        name: "Purchase Price",
+        name: "ثمن الشراء",
         text: item.value?.purchasePrice || "",
         type: "currency",
       },
       {
-        name: "Purchase Date",
+        name: "تاريخ الشراء",
         text: item.value?.purchaseTime || "",
         type: "date",
         date: true,
@@ -338,16 +338,16 @@
   const soldDetails = computed<Details>(() => {
     const v: Details = [
       {
-        name: "Sold To",
+        name: "تم البيع لـ",
         text: item.value?.soldTo || "",
       },
       {
-        name: "Sold Price",
+        name: "ثمن البيع",
         text: item.value?.soldPrice || "",
         type: "currency",
       },
       {
-        name: "Sold At",
+        name: "تاريخ البيع",
         text: item.value?.soldTime || "",
         type: "date",
         date: true,
@@ -358,7 +358,7 @@
       return filterZeroValues(v);
     }
 
-    return v;
+    return v; 
   });
 
   const refDialog = ref<HTMLDialogElement>();
@@ -390,17 +390,17 @@
     return [
       {
         id: "details",
-        name: "Details",
+        name: "التفاصيل",
         to: `/item/${itemId.value}`,
       },
       {
         id: "log",
-        name: "Maintenance",
+        name: "الصيانة",
         to: `/item/${itemId.value}/maintenance`,
       },
       {
         id: "edit",
-        name: "Edit",
+        name: "تعديل",
         to: `/item/${itemId.value}/edit`,
       },
     ];
@@ -413,7 +413,7 @@
 
     const resp = await api.items.fullpath(item.value.id);
     if (resp.error) {
-      toast.error("Failed to load item");
+      toast.error("فشل في تحميل العنصر");
       return [];
     }
 
@@ -430,7 +430,7 @@
     });
 
     if (resp.error) {
-      toast.error("Failed to load items");
+      toast.error("فشل في تحميل العناصر");
       return [];
     }
 
@@ -478,12 +478,12 @@
               </h1>
               <div class="flex gap-1 flex-wrap text-xs">
                 <div>
-                  Created
+                  تم الإنشاء
                   <DateTime :date="item?.createdAt" />
                 </div>
                 -
                 <div>
-                  Updated
+                  تم التحديث
                   <DateTime :date="item?.updatedAt" />
                 </div>
               </div>
@@ -514,12 +514,12 @@
     <section>
       <div class="space-y-6">
         <BaseCard v-if="!hasNested" collapsable>
-          <template #title> Details </template>
+          <template #title> التفاصيل </template>
           <template #title-actions>
             <div class="flex flex-wrap justify-between items-center mt-2 gap-4">
               <label class="label cursor-pointer">
                 <input v-model="preferences.showEmpty" type="checkbox" class="toggle toggle-primary" />
-                <span class="label-text ml-4"> Show Empty </span>
+                <span class="label-text ml-4"> عرض فارغ </span>
               </label>
               <PageQRCode />
             </div>
@@ -544,7 +544,7 @@
         <NuxtPage :item="item" :page-key="itemId" />
         <template v-if="!hasNested">
           <BaseCard v-if="photos && photos.length > 0">
-            <template #title> Photos </template>
+            <template #title> الصور </template>
             <div
               class="container border-t border-gray-300 p-4 flex flex-wrap gap-2 mx-auto max-h-[500px] overflow-y-scroll scroll-bg"
             >
@@ -555,7 +555,7 @@
           </BaseCard>
 
           <BaseCard v-if="showAttachments" collapsable>
-            <template #title> Attachments </template>
+            <template #title> المرفقات </template>
             <DetailsSection v-if="attachmentDetails.length > 0" :details="attachmentDetails">
               <template #manuals>
                 <ItemAttachmentsList
@@ -592,17 +592,17 @@
           </BaseCard>
 
           <BaseCard v-if="showPurchase" collapsable>
-            <template #title> Purchase Details </template>
+            <template #title> تفاصيل الشراء </template>
             <DetailsSection :details="purchaseDetails" />
           </BaseCard>
 
           <BaseCard v-if="showWarranty" collapsable>
-            <template #title> Warranty Details </template>
+            <template #title> تفاصيل الضمان </template>
             <DetailsSection :details="warrantyDetails" />
           </BaseCard>
 
           <BaseCard v-if="showSold" collapsable>
-            <template #title> Sold Details </template>
+            <template #title> تفاصيل البيع</template>
             <DetailsSection :details="soldDetails" />
           </BaseCard>
         </template>
