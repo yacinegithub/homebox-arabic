@@ -305,11 +305,11 @@
 <template>
   <div>
     <BaseModal v-model="passwordChange.dialog">
-      <template #title> Change Password </template>
+      <template #title> تغيير كلمة المرور </template>
 
       <form @submit.prevent="changePassword">
-        <FormPassword v-model="passwordChange.current" label="Current Password" placeholder="" />
-        <FormPassword v-model="passwordChange.new" label="New Password" placeholder="" />
+        <FormPassword v-model="passwordChange.current" label="كلمة المرور الحالية" placeholder="" />
+        <FormPassword v-model="passwordChange.new" label="كلمة المرور الجديدة" placeholder="" />
         <PasswordScore v-model:valid="passwordChange.isValid" :password="passwordChange.new" />
 
         <div class="flex">
@@ -319,14 +319,14 @@
             :disabled="!passwordChange.isValid"
             type="submit"
           >
-            Submit
+            حفض
           </BaseButton>
         </div>
       </form>
     </BaseModal>
 
     <BaseModal v-model="notifierDialog">
-      <template #title> {{ notifier ? "Edit" : "Create" }} Notifier </template>
+      <template #title> {{ notifier ? "Edit" : "Create" }} الإشعارات </template>
 
       <form @submit.prevent="createNotifier">
         <template v-if="notifier">
@@ -337,8 +337,8 @@
           </div>
         </template>
         <div class="flex gap-2 justify-between mt-4">
-          <BaseButton :disabled="!(notifier && notifier.url)" type="button" @click="testNotifier"> Test </BaseButton>
-          <BaseButton type="submit"> Submit </BaseButton>
+          <BaseButton :disabled="!(notifier && notifier.url)" type="button" @click="testNotifier"> تجريب </BaseButton>
+          <BaseButton type="submit"> حفض </BaseButton>
         </div>
       </form>
     </BaseModal>
@@ -348,8 +348,8 @@
         <template #title>
           <BaseSectionHeader>
             <MdiAccount class="mr-2 -mt-1 text-base-600" />
-            <span class="text-base-600"> User Profile </span>
-            <template #description> Invite users, and manage your account. </template>
+            <span class="text-base-600"> ملف تعريفي للمستخدم </span>
+            <template #description> قم بدعوة المستخدمين وإدارة حسابك.</template>
           </BaseSectionHeader>
         </template>
 
@@ -357,8 +357,8 @@
 
         <div class="p-4">
           <div class="flex gap-2">
-            <BaseButton size="sm" @click="openPassChange"> Change Password </BaseButton>
-            <BaseButton size="sm" @click="generateToken"> Generate Invite Link </BaseButton>
+            <BaseButton size="sm" @click="openPassChange"> تغيير كلمة المرور </BaseButton>
+            <BaseButton size="sm" @click="generateToken"> إنشاء رابط الدعوة</BaseButton>
           </div>
           <div v-if="token" class="pt-4 flex items-center pl-1">
             <CopyText class="mr-2 btn-primary btn btn-outline btn-square btn-sm" :text="tokenUrl" />
@@ -376,7 +376,7 @@
           <BaseSectionHeader>
             <MdiMegaphone class="mr-2 -mt-1 text-base-600" />
             <span class="text-base-600"> Notifiers </span>
-            <template #description> Get notifications for up coming maintenance reminders </template>
+            <template #description>احصل على إشعارات لتذكيرات الصيانة القادمة</template>
           </BaseSectionHeader>
         </template>
 
@@ -399,11 +399,11 @@
             </div>
             <div class="flex justify-between py-1 flex-wrap text-sm">
               <p>
-                <span v-if="n.isActive" class="badge badge-success"> Active </span>
-                <span v-else class="badge badge-error"> Inactive</span>
+                <span v-if="n.isActive" class="badge badge-success"> نشط </span>
+                <span v-else class="badge badge-error"> غير نشط</span>
               </p>
               <p>
-                Created
+                تم الإنشاء
                 <DateTime format="relative" datetime-type="time" :date="n.createdAt" />
               </p>
             </div>
@@ -411,7 +411,7 @@
         </div>
 
         <div class="p-4">
-          <BaseButton size="sm" @click="openNotifierDialog"> Create </BaseButton>
+          <BaseButton size="sm" @click="openNotifierDialog"> أنشء </BaseButton>
         </div>
       </BaseCard>
 
@@ -419,9 +419,9 @@
         <template #title>
           <BaseSectionHeader class="pb-0">
             <MdiAccountMultiple class="mr-2 -mt-1 text-base-600" />
-            <span class="text-base-600"> Group Settings </span>
+            <span class="text-base-600"> إعدادات المجموعة</span>
             <template #description>
-              Shared Group Settings. You may need to refresh your browser for some settings to apply.
+              إعدادات المجموعة المشتركة. قد تحتاج إلى تحديث متصفحك لتطبيق بعض الإعدادات.
             </template>
           </BaseSectionHeader>
         </template>
@@ -431,7 +431,7 @@
           <p class="m-2 text-sm">Example: {{ currencyExample }}</p>
 
           <div class="mt-4">
-            <BaseButton size="sm" @click="updateGroup"> Update Group </BaseButton>
+            <BaseButton size="sm" @click="updateGroup"> تحديث المجموعة</BaseButton>
           </div>
         </div>
       </BaseCard>
@@ -440,10 +440,10 @@
         <template #title>
           <BaseSectionHeader>
             <MdiFill class="mr-2 text-base-600" />
-            <span class="text-base-600"> Theme Settings </span>
+            <span class="text-base-600"> إعدادات المظهر </span>
             <template #description>
-              Theme settings are stored in your browser's local storage. You can change the theme at any time. If you're
-              having trouble setting your theme try refreshing your browser.
+             يتم تخزين إعدادات المظهر في وحدة التخزين المحلية للمتصفح الخاص بك. يمكنك تغيير الموضوع في أي وقت. إذا كنت
+               تواجه مشكلة في تعيين المظهر الخاص بك، حاول تحديث المتصفح الخاص بك.
             </template>
           </BaseSectionHeader>
         </template>
@@ -491,12 +491,12 @@
         <template #title>
           <BaseSectionHeader>
             <MdiDelete class="mr-2 -mt-1 text-base-600" />
-            <span class="text-base-600"> Delete Account</span>
-            <template #description> Delete your account and all its associated data. </template>
+            <span class="text-base-600"> حذف الحساب</span>
+            <template #description> احذف حسابك وجميع البيانات المرتبطة به.</template>
           </BaseSectionHeader>
         </template>
         <div class="p-4 px-6 border-t-2 border-gray-300">
-          <BaseButton size="sm" class="btn-error" @click="deleteProfile"> Delete Account </BaseButton>
+          <BaseButton size="sm" class="btn-error" @click="deleteProfile"> حذف الحساب </BaseButton>
         </div>
       </BaseCard>
     </BaseContainer>
