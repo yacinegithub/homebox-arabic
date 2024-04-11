@@ -16,7 +16,7 @@
   const { data: label } = useAsyncData(labelId.value, async () => {
     const { data, error } = await api.labels.get(labelId.value);
     if (error) {
-      toast.error("Failed to load label");
+      toast.error("فشل في تحميل التسمية");
       navigateTo("/home");
       return;
     }
@@ -27,7 +27,7 @@
 
   async function confirmDelete() {
     const { isCanceled } = await confirm.open(
-      "Are you sure you want to delete this label? This action cannot be undone."
+      "هل أنت متأكد أنك تريد حذف هذه التسمية؟ لا يمكن التراجع عن هذا الإجراء."
     );
 
     if (isCanceled) {
@@ -37,7 +37,7 @@
     const { error } = await api.labels.delete(labelId.value);
 
     if (error) {
-      toast.error("Failed to delete label");
+      toast.error("فشل في حذف التسمية");
       return;
     }
     toast.success("Label deleted");
@@ -64,11 +64,11 @@
 
     if (error) {
       updating.value = false;
-      toast.error("Failed to update label");
+      toast.error("فشل في تحديث التسمية");
       return;
     }
 
-    toast.success("Label updated");
+    toast.success("تم تحديث التسمية");
     label.value = data;
     updateModal.value = false;
     updating.value = false;
@@ -84,7 +84,7 @@
     });
 
     if (resp.error) {
-      toast.error("Failed to load items");
+      toast.error("فشل في تحميل التسمية");
       return [];
     }
 
@@ -95,12 +95,12 @@
 <template>
   <BaseContainer>
     <BaseModal v-model="updateModal">
-      <template #title> Update Label </template>
+      <template #title> تحديث التسمية </template>
       <form v-if="label" @submit.prevent="update">
-        <FormTextField v-model="updateData.name" :autofocus="true" label="Label Name" />
-        <FormTextArea v-model="updateData.description" label="Label Description" />
+        <FormTextField v-model="updateData.name" :autofocus="true" label="إسم التسمية" />
+        <FormTextArea v-model="updateData.description" label="شرح التسمية" />
         <div class="modal-action">
-          <BaseButton type="submit" :loading="updating"> Update </BaseButton>
+          <BaseButton type="submit" :loading="updating"> تحديث </BaseButton>
         </div>
       </form>
     </BaseModal>
@@ -130,12 +130,12 @@
                 <PageQRCode class="dropdown-left" />
                 <BaseButton size="sm" @click="openUpdate">
                   <MdiPencil class="mr-1" />
-                  Edit
+                  تعديل
                 </BaseButton>
               </div>
               <BaseButton class="btn btn-sm" @click="confirmDelete()">
                 <MdiDelete class="mr-2" />
-                Delete
+                حذف
               </BaseButton>
             </div>
           </div>
