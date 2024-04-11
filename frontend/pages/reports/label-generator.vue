@@ -106,47 +106,47 @@
   const propertyInputs = computed<InputDef[]>(() => {
     return [
       {
-        label: "Asset Start",
+        label: "بداية الأصل",
         ref: "assetRange",
       },
       {
-        label: "Asset End",
+        label: "نهاية الأصل",
         ref: "assetRangeMax",
       },
       {
-        label: "Label Height",
+        label: "إرتفاع التسمية",
         ref: "cardHeight",
       },
       {
-        label: "Label Width",
+        label: "عرض التسمية",
         ref: "cardWidth",
       },
       {
-        label: "Page Width",
+        label: "عرض الصفحة",
         ref: "pageWidth",
       },
       {
-        label: "Page Height",
+        label: "إرتفاع الصفحة", 
         ref: "pageHeight",
       },
       {
-        label: "Page Top Padding",
+        label: "الفراغ العلوي للصفحة",
         ref: "pageTopPadding",
       },
       {
-        label: "Page Bottom Padding",
+        label: "الفراغ السفلي للصفحة",
         ref: "pageBottomPadding",
       },
       {
-        label: "Page Left Padding",
+        label: "الفراغ الأيسر للصفحة",
         ref: "pageLeftPadding",
       },
       {
-        label: "Page Right Padding",
+        label: "الفراغ الأيمن للصفحة",
         ref: "pageRightPadding",
       },
       {
-        label: "Base URL",
+        label: "عنوان URL الأساسي",
         ref: "baseURL",
         type: "text",
       },
@@ -297,44 +297,44 @@
   <div class="print:hidden">
     <AppToast />
     <div class="container max-w-4xl mx-auto p-4 pt-6 prose">
-      <h1>Homebox Label Generator</h1>
+      <h1>Homebox مولد التسمية</h1>
       <p>
-        The Homebox Label Generator is a tool to help you print labels for your Homebox inventory. These are intended to
-        be print-ahead labels so you can print many labels and have them ready to apply
+        يعد مولد التسمية Homebox أداة تساعدك على طباعة الملصقات الخاصة بمخزون Homebox الخاص بك. وتهدف هذه إلى
+         تكون ملصقات جاهزة للطباعة حتى تتمكن من طباعة العديد من الملصقات وجعلها جاهزة للتطبيق
       </p>
       <p>
-        As such, these labels work by printing a URL QR Code and AssetID information on a label. If you've disabled
-        AssetID's in your Homebox settings, you can still use this tool, but the AssetID's won't reference any item
+        على هذا النحو، تعمل هذه الملصقات عن طريق طباعة عنوان URL ورمز QR ومعلومات AssetID على الملصق. إذا قمت بتعطيل
+         معرف الأصل في إعدادات Homebox، لا يزال بإمكانك استخدام هذه الأداة، لكن معرف الأصل لن يشير إلى أي عنصر
       </p>
       <p>
-        This feature is in early development stages and may change in future releases, if you have feedback please
-        provide it in the <a href="https://github.com/hay-kot/homebox/discussions/273">GitHub Discussion</a>
+       هذه الميزة في مراحل التطوير المبكرة وقد تتغير في الإصدارات المستقبلية، إذا كانت لديك تعليقات من فضلك
+         توفيرها في <a href="https://github.com/hay-kot/homebox/discussions/273">GitHub مناقشة</a>
       </p>
-      <h2>Tips</h2>
+      <h2>نصائح</h2>يي
       <ul>
         <li>
-          The defaults here are setup for the
-          <a href="https://www.avery.com/templates/5260">Avery 5260 label sheets</a>. If you're using a different sheet,
-          you'll need to adjust the settings to match your sheet.
+         الإعدادات الافتراضية هنا هي الإعداد لـ
+          <a href="https://www.avery.com/templates/5260">أوراق ملصقات Avery 5260</a>. إذا كنت تستخدم ورقة مختلفة،
+           ستحتاج إلى ضبط الإعدادات لتتناسب مع ورقتك.
         </li>
         <li>
-          If you're customizing your sheet the dimensions are in inches. When building the 5260 sheet, I found that the
-          dimensions used in their template, did not match what was needed to print within the boxes.
-          <b>Be prepared for some trial and error</b>
+          إذا كنت تقوم بتخصيص الورقة الخاصة بك، فستكون الأبعاد بالبوصة. عند بناء ورقة 5260، وجدت أن
+           الأبعاد المستخدمة في القالب الخاص بهم، لم تتطابق مع ما هو مطلوب للطباعة داخل الصناديق.
+           <b>كن مستعدًا لبعض التجارب والخطأ</b>
         </li>
         <li>
-          When printing be sure to:
+          عند الطباعة تأكد من:
           <ol>
-            <li>Set the margins to 0 or None</li>
-            <li>Set the scaling to 100%</li>
-            <li>Disable double-sided printing</li>
-            <li>Print a test page before printing multiple pages</li>
+            <li>اضبط الهوامش على 0 أو لا شيء</li>
+            <li>اضبط القياس على 100%</li>
+            <li>تعطيل الطباعة على الوجهين</li>
+            <li>اطبع صفحة اختبار قبل طباعة صفحات متعددة</li>
           </ol>
         </li>
       </ul>
       <div class="flex gap-2 flex-wrap">
-        <NuxtLink href="/tools">Tools</NuxtLink>
-        <NuxtLink href="/home">Home</NuxtLink>
+        <NuxtLink href="/tools">أدوات</NuxtLink>
+        <NuxtLink href="/home">الرئيسية</NuxtLink>
       </div>
     </div>
     <div class="divider max-w-4xl mx-auto"></div>
@@ -364,7 +364,7 @@
 
       <div>
         <p>QR Code Example {{ displayProperties.baseURL }}/a/{asset_id}</p>
-        <BaseButton class="btn-block my-4" @click="calcPages"> Generate Page </BaseButton>
+        <BaseButton class="btn-block my-4" @click="calcPages"> إنشاء الصفحة </BaseButton>
       </div>
     </div>
   </div>
