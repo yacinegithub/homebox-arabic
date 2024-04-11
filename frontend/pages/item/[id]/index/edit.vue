@@ -61,7 +61,7 @@
 
   async function saveItem() {
     if (!item.value.location?.id) {
-      toast.error("Failed to save item: no location selected");
+      toast.error("فشل حفظ العنصر: لم يتم تحديد موقع");
       return;
     }
 
@@ -76,7 +76,7 @@
     const { error } = await api.items.update(itemId.value, payload);
 
     if (error) {
-      toast.error("Failed to save item");
+      toast.error("فشل حفض العنصر");
       return;
     }
 
@@ -129,52 +129,52 @@
   const mainFields: FormField[] = [
     {
       type: "text",
-      label: "Name",
+      label: "الإسم",
       ref: "name",
     },
     {
       type: "number",
-      label: "Quantity",
+      label: "الكمية",
       ref: "quantity",
     },
     {
       type: "textarea",
-      label: "Description",
+      label: "الشرح",
       ref: "description",
     },
     {
       type: "text",
-      label: "Serial Number",
+      label: "الرقم التسلسلي",
       ref: "serialNumber",
     },
     {
       type: "text",
-      label: "Model Number",
+      label: "رقم النموذج",
       ref: "modelNumber",
     },
     {
       type: "text",
-      label: "Manufacturer",
+      label: "الصانع",
       ref: "manufacturer",
     },
     {
       type: "textarea",
-      label: "Notes",
+      label: "ملاحظات",
       ref: "notes",
     },
     {
       type: "checkbox",
-      label: "Insured",
+      label: "المؤمن عليه",
       ref: "insured",
     },
     {
       type: "checkbox",
-      label: "Archived",
+      label: "مؤرشف",
       ref: "archived",
     },
     {
       type: "text",
-      label: "Asset ID",
+      label: "رقم تعريف الأصل",
       ref: "assetId",
     },
   ];
@@ -182,17 +182,17 @@
   const purchaseFields: FormField[] = [
     {
       type: "text",
-      label: "Purchased From",
+      label: "تم الشراء من عند",
       ref: "purchaseFrom",
     },
     {
       type: "text",
-      label: "Purchase Price",
+      label: "ثمن الشراء",
       ref: "purchasePrice",
     },
     {
       type: "date",
-      label: "Purchase Date",
+      label: "تاريخ الشراء",
       // @ts-expect-error - we know this is a date
       ref: "purchaseTime",
     },
@@ -201,18 +201,18 @@
   const warrantyFields: FormField[] = [
     {
       type: "checkbox",
-      label: "Lifetime Warranty",
+      label: "ضمان مدى الحياة",
       ref: "lifetimeWarranty",
     },
     {
       type: "date",
-      label: "Warranty Expires",
+      label: "انتهاء الضمان",
       // @ts-expect-error - we know this is a date
       ref: "warrantyExpires",
     },
     {
       type: "textarea",
-      label: "Warranty Notes",
+      label: "ملاحظات الضمان",
       ref: "warrantyDetails",
     },
   ];
@@ -220,17 +220,17 @@
   const soldFields: FormField[] = [
     {
       type: "text",
-      label: "Sold To",
+      label: "تم البيع لـ",
       ref: "soldTo",
     },
     {
       type: "text",
-      label: "Sold Price",
+      label: "ثمن البيع",
       ref: "soldPrice",
     },
     {
       type: "date",
-      label: "Sold At",
+      label: "تاريخ البيع",
       // @ts-expect-error - we know this is a date
       ref: "soldTime",
     },
@@ -277,11 +277,11 @@
     const { data, error } = await api.items.attachments.add(itemId.value, files[0], files[0].name, type);
 
     if (error) {
-      toast.error("Failed to upload attachment");
+      toast.error("فشل تحميل المرفقة");
       return;
     }
 
-    toast.success("Attachment uploaded");
+    toast.success("تم تحميل المرفقة");
 
     item.value.attachments = data.attachments;
   }
@@ -289,7 +289,7 @@
   const confirm = useConfirm();
 
   async function deleteAttachment(attachmentId: string) {
-    const confirmed = await confirm.open("Are you sure you want to delete this attachment?");
+    const confirmed = await confirm.open("هل أنت متأكد أنك تريد حذف هذا المرفق؟");
 
     if (confirmed.isCanceled) {
       return;
@@ -298,11 +298,11 @@
     const { error } = await api.items.attachments.delete(itemId.value, attachmentId);
 
     if (error) {
-      toast.error("Failed to delete attachment");
+      toast.error("فشل حذف المرفقة");
       return;
     }
 
-    toast.success("Attachment deleted");
+    toast.success("تم حذف المرفقة");
     item.value.attachments = item.value.attachments.filter(a => a.id !== attachmentId);
   }
 
@@ -342,7 +342,7 @@
     });
 
     if (error) {
-      toast.error("Failed to update attachment");
+      toast.error("فشل تحديث المرفقة");
       return;
     }
 
@@ -355,7 +355,7 @@
     editState.title = "";
     editState.type = "";
 
-    toast.success("Attachment updated");
+    toast.success("تم تحديث المرفقة");
   }
 
   function addField() {
@@ -374,7 +374,7 @@
   const parent = ref();
 
   async function deleteItem() {
-    const confirmed = await confirm.open("Are you sure you want to delete this item?");
+    const confirmed = await confirm.open("هل أنت متأكد أنك تريد حذف هذا العنصر؟?");
 
     if (!confirmed.data) {
       return;
@@ -382,7 +382,7 @@
 
     const { error } = await api.items.delete(itemId.value);
     if (error) {
-      toast.error("Failed to delete item");
+      toast.error("فشل حذف العنصر");
       return;
     }
     toast.success("Item deleted");
@@ -417,10 +417,10 @@
     <BaseModal v-model="editState.modal">
       <template #title> Attachment Edit </template>
 
-      <FormTextField v-model="editState.title" label="Attachment Title" />
+      <FormTextField v-model="editState.title" label="عنوان المرفقة" />
       <FormSelect
         v-model:value="editState.type"
-        label="Attachment Type"
+        label="نوع المرفقة"
         value-key="value"
         name="text"
         :items="attachmentOpts"
@@ -428,38 +428,38 @@
       <div v-if="editState.type == 'photo'" class="flex gap-2 mt-3">
         <input v-model="editState.primary" type="checkbox" class="checkbox" />
         <p class="text-sm">
-          <span class="font-semibold">Primary Photo</span>
-          This options is only available for photos. Only one photo can be primary. If you select this option, the
-          current primary photo, if any will be unselected.
+          <span class="font-semibold">الصورة الأساسية</span>
+          هذا الخيار متاح فقط للصور. يمكن أن تكون صورة واحدة فقط أساسية. إذا قمت بتحديد هذا الخيار، فإن
+           سيتم إلغاء تحديد الصورة الأساسية الحالية، إن وجدت.
         </p>
       </div>
       <div class="modal-action">
-        <BaseButton :loading="editState.loading" @click="updateAttachment"> Update </BaseButton>
+        <BaseButton :loading="editState.loading" @click="updateAttachment"> تحديث </BaseButton>
       </div>
     </BaseModal>
 
     <section class="relative">
       <div class="my-4 justify-end flex gap-2 items-center sticky z-10 top-1">
-        <div class="mr-auto tooltip tooltip-right" data-tip="Show Advanced View Options">
+        <div class="mr-auto tooltip tooltip-right" data-tip="إظهار خيارات العرض المتقدمة">
           <label class="label cursor-pointer mr-auto">
             <input v-model="preferences.editorAdvancedView" type="checkbox" class="toggle toggle-primary" />
-            <span class="label-text ml-4"> Advanced </span>
+            <span class="label-text ml-4"> متقدم </span>
           </label>
         </div>
         <BaseButton size="sm" @click="saveItem">
           <template #icon>
             <MdiContentSaveOutline />
           </template>
-          Save
+          حفض
         </BaseButton>
         <BaseButton class="btn btn-sm btn-error" @click="deleteItem()">
           <MdiDelete class="mr-2" />
-          Delete
+          حذف
         </BaseButton>
       </div>
       <div v-if="!requestPending" class="space-y-6">
         <BaseCard class="overflow-visible">
-          <template #title> Edit Details </template>
+          <template #title> تعديل التفاصيل </template>
           <template #title-actions>
             <div class="flex flex-wrap justify-between items-center mt-2 gap-4"></div>
           </template>
@@ -473,7 +473,7 @@
               :items="results"
               item-text="name"
               label="Parent Item"
-              no-results-text="Type to search..."
+              no-results-text="اكتب للبحث..."
             />
           </div>
 
@@ -512,7 +512,7 @@
         </BaseCard>
 
         <BaseCard>
-          <template #title> Custom Fields </template>
+          <template #title> الحقول المخصصة </template>
           <div class="px-5 border-t divide-y divide-gray-300 space-y-4">
             <div
               v-for="(field, idx) in item.fields"
@@ -520,10 +520,10 @@
               class="grid grid-cols-2 md:grid-cols-4 gap-2"
             >
               <!-- <FormSelect v-model:value="field.type" label="Field Type" :items="fieldTypes" value-key="value" /> -->
-              <FormTextField v-model="field.name" label="Name" />
+              <FormTextField v-model="field.name" label="الإسم" />
               <div class="flex items-end col-span-3">
                 <FormTextField v-model="field.textValue" label="Value" />
-                <div class="tooltip" data-tip="Delete">
+                <div class="tooltip" data-tip="حذف">
                   <button class="btn btn-sm btn-square mb-2 ml-2" @click="item.fields.splice(idx, 1)">
                     <MdiDelete />
                   </button>
@@ -532,7 +532,7 @@
             </div>
           </div>
           <div class="px-5 pb-4 mt-4 flex justify-end">
-            <BaseButton size="sm" @click="addField"> Add </BaseButton>
+            <BaseButton size="sm" @click="addField"> أضف </BaseButton>
           </div>
         </BaseCard>
 
@@ -542,16 +542,16 @@
           class="overflow-visible card bg-base-100 shadow-xl sm:rounded-lg"
         >
           <div class="px-4 py-5 sm:px-6">
-            <h3 class="text-lg font-medium leading-6">Attachments</h3>
-            <p class="text-xs">Changes to attachments will be saved immediately</p>
+            <h3 class="text-lg font-medium leading-6">المرفقات</h3>
+            <p class="text-xs">سيتم حفظ التغييرات على المرفقات على الفور</p>
           </div>
           <div class="border-t border-gray-300 p-4">
             <div v-if="attDropZoneActive" class="grid grid-cols-4 gap-4">
-              <DropZone @drop="dropPhoto"> Photo </DropZone>
-              <DropZone @drop="dropWarranty"> Warranty </DropZone>
-              <DropZone @drop="dropManual"> Manual </DropZone>
-              <DropZone @drop="dropAttachment"> Attachment </DropZone>
-              <DropZone @drop="dropReceipt"> Receipt </DropZone>
+              <DropZone @drop="dropPhoto"> صورة </DropZone>
+              <DropZone @drop="dropWarranty"> الضمان </DropZone>
+              <DropZone @drop="dropManual"> دليل الإستخدام </DropZone>
+              <DropZone @drop="dropAttachment"> مرفقة </DropZone>
+              <DropZone @drop="dropReceipt"> إيصال </DropZone>
             </div>
             <button
               v-else
@@ -559,7 +559,7 @@
               @click="clickUpload"
             >
               <input ref="refAttachmentInput" hidden type="file" @change="uploadImage" />
-              <p>Drag and drop files here or click to select files</p>
+              <p>قم بسحب وإفلات الملفات هنا أو انقر لتحديد الملفات</p>
             </button>
           </div>
 
@@ -595,7 +595,7 @@
 
         <div v-if="preferences.editorAdvancedView" class="overflow-visible card bg-base-100 shadow-xl sm:rounded-lg">
           <div class="px-4 py-5 sm:px-6">
-            <h3 class="text-lg font-medium leading-6">Purchase Details</h3>
+            <h3 class="text-lg font-medium leading-6">تفاصيل الشراء</h3>
           </div>
           <div class="border-t border-gray-300 sm:p-0">
             <div
@@ -637,7 +637,7 @@
 
         <div v-if="preferences.editorAdvancedView" class="overflow-visible card bg-base-100 shadow-xl sm:rounded-lg">
           <div class="px-4 py-5 sm:px-6">
-            <h3 class="text-lg font-medium leading-6">Warranty Details</h3>
+            <h3 class="text-lg font-medium leading-6">تفاصيل الضمان</h3>
           </div>
           <div class="border-t border-gray-300 sm:p-0">
             <div
@@ -679,7 +679,7 @@
 
         <div v-if="preferences.editorAdvancedView" class="overflow-visible card bg-base-100 shadow-xl sm:rounded-lg">
           <div class="px-4 py-5 sm:px-6">
-            <h3 class="text-lg font-medium leading-6">Sold Details</h3>
+            <h3 class="text-lg font-medium leading-6">تفاصيل البيع</h3>
           </div>
           <div class="border-t border-gray-300 sm:p-0">
             <div v-for="field in soldFields" :key="field.ref" class="sm:divide-y sm:divide-gray-300 grid grid-cols-1">
