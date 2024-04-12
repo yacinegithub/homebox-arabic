@@ -5,7 +5,7 @@
       <p>{{ text }}</p>
     </div>
     <div class="modal-action">
-      <BaseButton type="submit" @click="confirm(true)"> Confirm </BaseButton>
+      <BaseButton type="submit" @click="confirm(true)"> تأكيد </BaseButton>
     </div>
   </BaseModal>
 </template>
