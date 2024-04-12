@@ -6,7 +6,7 @@
         <template #title>
           <BaseSectionHeader>
             <MdiFileChart class="mr-2" />
-            <span> Reports </span>
+            <span> التقارير </span>
             <template #description> إنشاء تقارير مختلفة للمخزون الخاص بك. </template>
           </BaseSectionHeader>
         </template>
@@ -24,7 +24,7 @@
             <template #title>فاتورة المواد</template>
             ينشئ ملف TSV (قيم مفصولة بعلامات جدولة) يمكن استيراده إلى برنامج جدول بيانات. هذا ال
              ملخص للمخزون الخاص بك مع العنصر الأساسي ومعلومات التسعير.
-            <template #button> Generate BOM </template>
+            <template #button> إنشاء الفاتورة </template>
           </DetailAction>
         </div>
       </BaseCard>
@@ -32,7 +32,7 @@
         <template #title>
           <BaseSectionHeader>
             <MdiDatabase class="mr-2" />
-            <span> Import / Export </span>
+            <span> تصدير و استيراد </span>
             <template #description>
               استيراد وتصدير المخزون الخاص بك من وإلى ملف CSV. يعد هذا مفيدًا لترحيل مخزونك إلى ملف
                مثيل جديد من هوم بوكس.
@@ -55,7 +55,7 @@
         <template #title>
           <BaseSectionHeader>
             <MdiAlert class="mr-2" />
-            <span> Inventory Actions </span>
+            <span> إجراءات المخزون </span>
             <template #description>
               قم بتطبيق الإجراءات على المخزون الخاص بك بكميات كبيرة. هذه إجراءات لا رجعة فيها. <b>كن حذرًا.</b>
             </template>
