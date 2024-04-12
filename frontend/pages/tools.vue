@@ -12,11 +12,11 @@
         </template>
         <div class="border-t px-6 pb-3 border-gray-300 divide-gray-300 divide-y">
           <DetailAction @action="navigateTo('/reports/label-generator')">
-            <template #title>تسميات معرف الأصول</template>
-           يُنشئ ملف PDF قابلاً للطباعة من التسميات لمجموعة من معرفات الأصول. هذه ليست محددة للمخزون الخاص بك لذلك أنت
+            <template #title>ملصقات معرف الأصول</template>
+           يُنشئ ملف PDF قابلاً للطباعة من الملصقات لمجموعة من معرفات الأصول. هذه ليست محددة للمخزون الخاص بك لذلك أنت
              قادرون على طباعة الملصقات مسبقًا وتطبيقها على المخزون الخاص بك عند استلامها.
             <template #button>
-              مولد التسمية
+              مولد الملصقة
               <MdiArrowRight class="ml-2" />
             </template>
           </DetailAction>
