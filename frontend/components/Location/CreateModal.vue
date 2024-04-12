@@ -7,20 +7,20 @@
         v-model="form.name"
         :trigger-focus="focused"
         :autofocus="true"
-        label="Location Name"
+        label="إسم المكان"
       />
-      <FormTextArea v-model="form.description" label="Location Description" />
+      <FormTextArea v-model="form.description" label="وصف المكان" />
       <LocationSelector v-model="form.parent" />
       <div class="modal-action">
         <div class="flex justify-center">
-          <BaseButton class="rounded-r-none" type="submit" :loading="loading"> Create </BaseButton>
+          <BaseButton class="rounded-r-none" type="submit" :loading="loading"> أنشء </BaseButton>
           <div class="dropdown dropdown-top">
             <label tabindex="0" class="btn rounded-l-none rounded-r-xl">
               <MdiChevronDown class="h-5 w-5" />
             </label>
             <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-64 right-0">
               <li>
-                <button type="button" @click="create(false)">Create and Add Another</button>
+                <button type="button" @click="create(false)">أنشء و أضف آخر</button>
               </li>
             </ul>
           </div>
@@ -28,7 +28,7 @@
       </div>
     </form>
     <p class="text-sm text-center mt-4">
-      use <kbd class="kbd kbd-xs">Shift</kbd> + <kbd class="kbd kbd-xs"> Enter </kbd> to create and add another
+      إضغط <kbd class="kbd kbd-xs">Shift</kbd> + <kbd class="kbd kbd-xs"> Enter </kbd> للإنشاء و إضافة آخر
     </p>
   </BaseModal>
 </template>
