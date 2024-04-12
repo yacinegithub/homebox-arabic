@@ -332,7 +332,7 @@
       </div>
 
       <div class="flex flex-wrap md:flex-nowrap gap-2 w-full py-2">
-        <SearchFilter v-model="selectedLocations" label="Locations" :options="locationFlatTree">
+        <SearchFilter v-model="selectedLocations" label="الأماكن" :options="locationFlatTree">
           <template #display="{ item }">
             <div>
               <div class="flex w-full">
@@ -344,7 +344,7 @@
             </div>
           </template>
         </SearchFilter>
-        <SearchFilter v-model="selectedLabels" label="Labels" :options="labels" />
+        <SearchFilter v-model="selectedLabels" label="الأصناف" :options="labels" />
         <div class="dropdown">
           <label tabindex="0" class="btn btn-xs">خيارات</label>
           <div
@@ -364,12 +364,12 @@
           </div>
         </div>
         <div class="dropdown ml-auto dropdown-end">
-          <label tabindex="0" class="btn btn-xs">Tips</label>
+          <label tabindex="0" class="btn btn-xs">النصائح</label>
           <div
-            tabindex="0"
+            tabindex="0" 
             class="dropdown-content mt-1 p-4 w-[325px] text-sm overflow-auto shadow bg-base-100 rounded-md"
           >
-            <p class="text-base">Search Tips</p>
+            <p class="text-base">نصائح البحث</p>
             <ul class="mt-1 list-disc pl-6">
               <li>
                تستخدم مرشحات الموقع والتسمية العملية "OR". إذا تم اختيار أكثر من واحد سيتم اختيار واحد فقط
