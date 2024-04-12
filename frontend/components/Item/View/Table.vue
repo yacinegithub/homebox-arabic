@@ -90,10 +90,10 @@
 
   const headers = computed<TableHeader[]>(() => {
     return [
-      { text: "Name", value: "name" },
-      { text: "Quantity", value: "quantity", align: "center" },
-      { text: "Insured", value: "insured", align: "center" },
-      { text: "Price", value: "purchasePrice" },
+      { text: "الإسم", value: "name" },
+      { text: "الكمية", value: "quantity", align: "center" },
+      { text: "مؤمن عليه", value: "insured", align: "center" },
+      { text: "الثمن", value: "purchasePrice" },
     ] as TableHeader[];
   });
 
