@@ -29,7 +29,7 @@
 <template>
   <section>
     <BaseSectionHeader class="mb-2 flex justify-between items-center">
-      Items
+      عناصر
       <template #description>
         <div v-if="!viewSet" class="dropdown dropdown-hover dropdown-left">
           <label tabindex="0" class="btn btn-ghost m-1">
@@ -39,13 +39,13 @@
             <li>
               <button @click="setViewPreference('card')">
                 <MdiCardTextOutline class="h-5 w-5" />
-                Card
+                بطاقة
               </button>
             </li>
             <li>
               <button @click="setViewPreference('table')">
                 <MdiTable class="h-5 w-5" />
-                Table
+                جدول
               </button>
             </li>
           </ul>
