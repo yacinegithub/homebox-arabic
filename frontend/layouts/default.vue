@@ -116,19 +116,19 @@
 
   const dropdown = [
     {
-      name: "Item / Asset",
+      name: "أصل / غرض",
       action: () => {
         modals.item = true;
       },
     },
     {
-      name: "Location",
+      name: "مكان",
       action: () => {
         modals.location = true;
       },
     },
     {
-      name: "Label",
+      name: "تسمية",
       action: () => {
         modals.label = true;
       },
