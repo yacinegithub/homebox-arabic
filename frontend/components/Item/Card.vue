@@ -16,13 +16,13 @@
       <h2 class="text-lg font-bold two-line">{{ item.name }}</h2>
       <div class="divider my-0"></div>
       <div class="flex justify-between gap-2">
-        <div v-if="item.insured" class="tooltip z-10" data-tip="Insured">
+        <div v-if="item.insured" class="tooltip z-10" data-tip="مؤمن عليه ">
           <MdiShieldCheck class="h-5 w-5 text-primary" />
         </div>
-        <div class="tooltip" data-tip="Quantity">
+        <div class="tooltip" data-tip="الكمية">
           <span class="badge h-5 w-5 badge-primary badge-sm text-xs">
             {{ item.quantity }}
-          </span>
+          </spa
         </div>
       </div>
       <Markdown class="mb-2 text-clip three-line" :source="item.description" />
