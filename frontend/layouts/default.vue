@@ -30,7 +30,7 @@
 
         <slot></slot>
       </div>
-
+ 
       <!-- Sidebar -->
       <div class="drawer-side shadow-lg">
         <label for="my-drawer-2" class="drawer-overlay"></label>
@@ -39,7 +39,7 @@
         <div class="w-60 py-5 md:py-10 bg-base-200 flex flex-grow-1 flex-col">
           <div class="space-y-8">
             <div class="flex flex-col items-center gap-4">
-              <p>Welcome, {{ username }}</p>
+              <p> {{ username }} ،مرحبا</p>
               <NuxtLink class="avatar placeholder" to="/home">
                 <div class="bg-base-300 text-neutral-content rounded-full w-24 p-4">
                   <AppLogo />
@@ -53,7 +53,7 @@
                     <span>
                       <MdiPlus class="mr-1 -ml-1" />
                     </span>
-                    Create
+                    إنشاء
                   </label>
                   <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-40">
                     <li v-for="btn in dropdown" :key="btn.name">
@@ -83,7 +83,7 @@
           </div>
 
           <!-- Bottom -->
-          <button class="mt-auto mx-2 hover:bg-base-300 p-3 rounded-btn" @click="logout">Sign Out</button>
+          <button class="mt-auto mx-2 hover:bg-base-300 p-3 rounded-btn" @click="logout">تسجيل الخروج</button>
         </div>
       </div>
     </div>
@@ -149,35 +149,35 @@
       icon: MdiHome,
       active: computed(() => route.path === "/home"),
       id: 0,
-      name: "Home",
+      name: "الرئيسية",
       to: "/home",
     },
     {
       icon: MdiFileTree,
       id: 4,
       active: computed(() => route.path === "/locations"),
-      name: "Locations",
+      name: "الأماكن",
       to: "/locations",
     },
     {
       icon: MdiMagnify,
       id: 3,
       active: computed(() => route.path === "/items"),
-      name: "Search",
+      name: "بحث",
       to: "/items",
     },
     {
       icon: MdiAccount,
       id: 1,
       active: computed(() => route.path === "/profile"),
-      name: "Profile",
+      name: "الملف الشخصي"
       to: "/profile",
     },
     {
       icon: MdiCog,
       id: 6,
       active: computed(() => route.path === "/tools"),
-      name: "Tools",
+      name: "الأدوات",
       to: "/tools",
     },
   ];
