@@ -170,7 +170,7 @@
       icon: MdiAccount,
       id: 1,
       active: computed(() => route.path === "/profile"),
-      name: "الملف الشخصي"
+      name: "الملف الشخصي",
       to: "/profile",
     },
     {
