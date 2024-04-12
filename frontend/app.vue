@@ -1,6 +1,6 @@
 <template>
   <NuxtLayout>
-    <Html lang="en" :data-theme="theme || 'homebox'" />
+    <Html lang="en" :data-theme="theme || 'homebox'"  dir="rtl"/>
     <Link rel="icon" type="image/svg" href="/favicon.svg"></Link>
     <Link rel="apple-touch-icon" href="/apple-touch-icon.png" size="180x180" />
     <Link rel="mask-icon" href="/mask-icon.svg" color="#5b7f67" />
