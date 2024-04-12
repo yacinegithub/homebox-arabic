@@ -1,5 +1,5 @@
 <template>
-  <FormAutocomplete2 v-if="locations" v-model="value" :items="locations" display="name" label="Parent Location">
+  <FormAutocomplete2 v-if="locations" v-model="value" :items="locations" display="name" label="المكان الأصلي">
     <template #display="{ item, selected, active }">
       <div>
         <div class="flex w-full">
