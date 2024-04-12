@@ -10,21 +10,6 @@ export default defineNuxtConfig({
     "@vite-pwa/nuxt",
     "./nuxt.proxyoverride.ts",
     "unplugin-icons/nuxt",
-    '@nuxtjs/google-fonts',
-    {
-      families: {
-        Roboto: {
-          wght: [400, 600, 700],
-        },
-      },
-      // subsets: ['latin'],
-      display: 'swap',
-      prefetch: false,
-      preconnect: false,
-      preload: false,
-      download: true,
-      base64: false,
-    },
   ],
   nitro: {
     devProxy: {
