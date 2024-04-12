@@ -128,7 +128,7 @@
       },
     },
     {
-      name: "تسمية",
+      name: "صنف",
       action: () => {
         modals.label = true;
       },
