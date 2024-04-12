@@ -3,7 +3,7 @@
     <template #title> Create Item </template>
     <form @submit.prevent="create()">
       <LocationSelector v-model="form.location" />
-      <FormTextField ref="nameInput" v-model="form.name" :trigger-focus="focused" :autofocus="true" label="Item Name" />
+      <FormTextField ref="nameInput" v-model="form.name" :trigger-focus="focused" :autofocus="true" label="إسم العنصر" />
       <FormTextArea v-model="form.description" label="Item Description" />
       <FormMultiselect v-model="form.labels" label="Labels" :items="labels ?? []" />
       <div class="modal-action">
@@ -13,7 +13,7 @@
               <MdiPackageVariant class="swap-off h-5 w-5" />
               <MdiPackageVariantClosed class="swap-on h-5 w-5" />
             </template>
-            Create
+            أنشء
           </BaseButton>
           <div class="dropdown dropdown-top">
             <label tabindex="0" class="btn rounded-l-none rounded-r-xl">
@@ -21,7 +21,7 @@
             </label>
             <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-64 right-0">
               <li>
-                <button type="button" @click="create(false)">Create and Add Another</button>
+                <button type="button" @click="create(false)">أنشء و أضف عنصر آخر</button>
               </li>
             </ul>
           </div>
@@ -29,7 +29,7 @@
       </div>
     </form>
     <p class="text-sm text-center mt-4">
-      use <kbd class="kbd kbd-xs">Shift</kbd> + <kbd class="kbd kbd-xs"> Enter </kbd> to create and add another
+      إضغط <kbd class="kbd kbd-xs">Shift</kbd> + <kbd class="kbd kbd-xs"> Enter </kbd> لإنشاء و إضافة عنصر آخر
     </p>
   </BaseModal>
 </template>
