@@ -87,11 +87,11 @@
 
     if (error) {
       loading.value = false;
-      toast.error("Couldn't create location");
+      toast.error("فشل إنشاء المكان");
     }
 
     if (data) {
-      toast.success("Location created");
+      toast.success("تم إنشاء المكان");
     }
     reset();
 
