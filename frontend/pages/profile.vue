@@ -375,7 +375,7 @@
         <template #title>
           <BaseSectionHeader>
             <MdiMegaphone class="mr-2 -mt-1 text-base-600" />
-            <span class="text-base-600"> Notifiers </span>
+            <span class="text-base-600"> الإشعارات </span>
             <template #description>احصل على إشعارات لتذكيرات الصيانة القادمة</template>
           </BaseSectionHeader>
         </template>
@@ -427,8 +427,8 @@
         </template>
 
         <div v-if="group && currencies && currencies.length > 0" class="p-5 pt-0">
-          <FormSelect v-model="currency" label="Currency Format" :items="currencies" />
-          <p class="m-2 text-sm">Example: {{ currencyExample }}</p>
+          <FormSelect v-model="currency" label="شكل العملة" :items="currencies" />
+          <p class="m-2 text-sm">مثال: {{ currencyExample }}</p>
 
           <div class="mt-4">
             <BaseButton size="sm" @click="updateGroup"> تحديث المجموعة</BaseButton>
