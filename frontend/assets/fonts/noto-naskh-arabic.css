@@ -5,6 +5,7 @@
 
 @font-face {
   font-family: 'Noto Naskh Arabic';
+  font-optical-sizing: auto;
   font-style: normal;
   font-weight: 400;
   src: local('Noto_Naskh_Arabic');
