@@ -1,25 +1,25 @@
 <template>
   <BaseModal v-model="modal">
-    <template #title> Create Label </template>
+    <template #title> إنشاء صنف </template>
     <form @submit.prevent="create()">
       <FormTextField
         ref="locationNameRef"
         v-model="form.name"
         :trigger-focus="focused"
         :autofocus="true"
-        label="Label Name"
+        label="إسم الصنف"
       />
-      <FormTextArea v-model="form.description" label="Label Description" />
+      <FormTextArea v-model="form.description" label="وصف الصنف" />
       <div class="modal-action">
         <div class="flex justify-center">
-          <BaseButton class="rounded-r-none" :loading="loading" type="submit"> Create </BaseButton>
+          <BaseButton class="rounded-r-none" :loading="loading" type="submit"> أنشء </BaseButton>
           <div class="dropdown dropdown-top">
             <label tabindex="0" class="btn rounded-l-none rounded-r-xl">
               <MdiChevronDown class="h-5 w-5" />
             </label>
             <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-64 right-0">
-              <li>
-                <button type="button" @click="create(false)">Create and Add Another</button>
+              <li> 
+                <button type="button" @click="create(false)">أنشء و أضف  آخر</button>
               </li>
             </ul>
           </div>
@@ -27,7 +27,7 @@
       </div>
     </form>
     <p class="text-sm text-center mt-4">
-      use <kbd class="kbd kbd-xs">Shift</kbd> + <kbd class="kbd kbd-xs"> Enter </kbd> to create and add another
+      إضغط <kbd class="kbd kbd-xs">Shift</kbd> + <kbd class="kbd kbd-xs"> Enter </kbd> للإنشاء و إضافة آخر
     </p>
   </BaseModal>
 </template>
