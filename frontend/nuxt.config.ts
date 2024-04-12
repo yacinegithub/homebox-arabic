@@ -35,7 +35,7 @@ export default defineNuxtConfig({
       },
     },
   },
-  css: ["@/assets/css/main.css"],
+  css: ["@/assets/css/main.css", "@/assets/fonts/noto-naskh-arabic.css"],
   pwa: {
     workbox: {
       navigateFallbackDenylist: [/^\/api/],
