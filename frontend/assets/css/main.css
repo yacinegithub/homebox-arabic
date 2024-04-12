@@ -1,3 +1,8 @@
+body
+{
+  font-family: "Noto Naskh Arabic", serif;
+}
+
 .text-no-transform {
     text-transform: none !important;
 }
