@@ -104,11 +104,11 @@
     console.log(auth.user);
     return [
       {
-        name: "Name",
+        name: "الإسم",
         text: auth.user?.name || "Unknown",
       },
       {
-        name: "Email",
+        name: "البريد الإلكتروني",
         text: auth.user?.email || "Unknown",
       },
     ] as Detail[];
