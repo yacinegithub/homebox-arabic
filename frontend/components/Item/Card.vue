@@ -22,7 +22,7 @@
         <div class="tooltip" data-tip="الكمية">
           <span class="badge h-5 w-5 badge-primary badge-sm text-xs">
             {{ item.quantity }}
-          </spa
+          </span>
         </div>
       </div>
       <Markdown class="mb-2 text-clip three-line" :source="item.description" />
