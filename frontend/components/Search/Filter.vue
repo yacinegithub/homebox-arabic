@@ -5,7 +5,7 @@
     </button>
     <div tabindex="0" class="dropdown-content mt-1 w-64 shadow bg-base-100 rounded-md">
       <div class="pt-4 px-4 shadow-sm mb-1">
-        <input v-model="search" type="text" placeholder="Search…" class="input input-sm input-bordered w-full mb-2" />
+        <input v-model="search" type="text" placeholder="…بحث" class="input input-sm input-bordered w-full mb-2" />
       </div>
       <div class="overflow-y-auto max-h-72 divide-y">
         <label
